@@ -1,0 +1,2 @@
+module PinPicsHelper
+end

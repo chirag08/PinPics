@@ -1,0 +1,33 @@
+<div class="row">
+		<%= form_tag(search_path, :method => "get", class: "col m12 s12 l5 offset-l3") do %>
+			<div class="row">
+				<%= text_field_tag :tag, params[:tag], placeholder: "Search Images",class: 'input-field  col s12 m12 l6' %>
+			    <%= submit_tag "Search", :name => nil ,class: 'input-field col s12 m12 l6 waves-effect waves-light btn'%>
+			</div>
+		   
+		<% end %>
+</div>
+<div class="row">
+	<% if !@images.nil? %>
+		<% @images.each do |image| %>
+			<div class="col l4">  
+				<div class="card small">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src= <%= image.url %> height = '170px' width = '300px' >
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4"> <%= image.name %><i class="material-icons right">more_vert</i></span>
+						<p>Tag - <%= image.tag.name %></p>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4"><%= image.name %><i class="material-icons right">close</i></span>
+						<p>Here is some more information about this product that is only revealed once clicked on.</p>
+					</div>
+				</div>
+			
+			</div>
+		<% end %>  		
+	<% else %>
+			<h3 class="center"> No results Found Sorry!!</h3>
+	<% end %>		
+</div>
