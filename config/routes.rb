@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root 'pin_pics#index'
   
   resources :images
-  get 'search' => 'pin_pics#index' , as: :search
+  get 'search' => 'pin_pics#index'
+  get 'boards' => 'pin_pics#board_show'
+  get '/board/show/:id' => 'pin_pics#index', as: :board_images
+
  
 
   # The priority is based upon order of creation: first created -> highest priority.

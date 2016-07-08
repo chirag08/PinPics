@@ -1,12 +1,17 @@
+<% if user_signed_in? %>
+	<%= current_user %>
+<% end %>
+
 <div class="row">
 		<%= form_tag(search_path, :method => "get", class: "col m12 s12 l5 offset-l3") do %>
 			<div class="row">
-				<%= text_field_tag :tag, params[:tag], placeholder: "Search Images",class: 'input-field  col s12 m12 l6' %>
-			    <%= submit_tag "Search", :name => nil ,class: 'input-field col s12 m12 l6 waves-effect waves-light btn'%>
+				<%= text_field_tag :tag, params[:tag], placeholder: "Search Images",class: 'input-field  col s12 m12 l8' %>
+			    <%= submit_tag "Search", :name => nil ,class: 'input-field col s12 m12 l4 waves-effect waves-light btn'%>
 			</div>
 		   
 		<% end %>
 </div>
+
 <div class="row">
 	<% if !@images.nil? %>
 		<% @images.each do |image| %>

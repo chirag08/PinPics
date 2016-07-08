@@ -3,8 +3,14 @@
 		<div class="nav-wrapper indigo">
 			<div style="margin-left: 30px"><%= link_to "Pin^_^Pics", root_path, id: "logo" ,class: "brand-logo" %></div>
 			  <ul id="nav-mobile" class="right hide-on-med-and-down">
-			    <li><%= link_to "Boards" ,'#'%></li>
 			    <li> <%= link_to "Images", '#' %> </li>
+			    <% if user_signed_in? %>
+			    	<li><%= link_to "Boards" ,boards_path%></li>
+			    	<li><%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
+			    <% else %>
+			    	<%= link_to "Log In", new_user_session_path, :method => :get %>
+					<%= link_to "Sign up", new_user_registration_path, :method => :get %>
+			    <% end %>
 			  </ul>
 		</div>
 	</nav>
