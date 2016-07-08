@@ -1,0 +1,5 @@
+<div class="collection">
+	<% @boards.each do |board| %>
+		<%= link_to board.name, board_images_path(id: board.id), :method => :get,class: 'collection-item' %>
+	<% end %>
+</div>
