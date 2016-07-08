@@ -1,0 +1,4 @@
+<h4> Add Image to Board </h3>
+<% if !Board.all.nil? %>
+<%= select_tag 'boards', options_for_select(Board.all.collect{ |u| [u.name, u.id] }),style: 'display: block;' %>
+<% end %>

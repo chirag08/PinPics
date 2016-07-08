@@ -1,5 +1,6 @@
 class PinPicsController < ApplicationController
-	
+	before_filter :authenticate_user!, :only => [:board_add]
+
 	def index
 		if params[:tag]
 			tag = params[:tag]
@@ -19,4 +20,7 @@ class PinPicsController < ApplicationController
 		@boards = current_user.boards
 	end
 
+	def board_add
+		
+	end
 end

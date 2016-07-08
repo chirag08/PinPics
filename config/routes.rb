@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'search' => 'pin_pics#index'
   get 'boards' => 'pin_pics#board_show'
   get '/board/show/:id' => 'pin_pics#index', as: :board_images
-
+  get 'image/add/:id' => 'pin_pics#board_add' ,as: :board_add
  
 
   # The priority is based upon order of creation: first created -> highest priority.
